@@ -1,0 +1,26 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  # 'name' must match the filename of the manifest. The name defines how
+  # the plugin is invoked, for example: `kubectl restart`
+  name: restart
+spec:
+  # 'version' is a valid semantic version string (see semver.org). Note the prefix 'v' is required.
+  version: "v0.0.1"
+  # 'homepage' usually links to the GitHub repository of the plugin
+  homepage: https://github.com/achanda/kubectl-restart
+  # 'shortDescription' explains what the plugin does in only a few words
+  shortDescription: "sniff"
+  description: |
+    Restarts a pod with the given name. The existing pod
+  binaryName: sniff
+  files:
+    - sniff
+  platforms:
+  - selector:
+      matchExpressions:
+      - key: "os"
+        operator: "In"
+        values:
+        - darwin
+        - linux
